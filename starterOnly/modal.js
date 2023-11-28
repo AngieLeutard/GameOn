@@ -16,7 +16,6 @@ const submitBtn = document.querySelectorAll(".js-btn-submit");
 const successMessage = document.querySelector(".successMessage");
 const btnClose = document.querySelector(".modal-close");
 
-let inputs = document.querySelectorAll(".js-input");
 let errorMessages = document.querySelectorAll(".errorMessage");
 let form = document.querySelector("#form");
 
@@ -135,28 +134,62 @@ inputQuantity.addEventListener("change", (e) => {
   return inputQuantityValue;
 });
 
-// Inputs value event
 
-let inputJs = "";
 
-if (inputFirstNameValue != null || inputFirstNameValue != "", inputLastNameValue != null || inputLastNameValue != "", inputEmailValue != null || inputEmailValue != "", inputBirthdateValue != null || inputBirthdateValue != "", inputQuantityValue != null || inputQuantityValue != "") {
-    inputJs === false
-}
 
-console.log(inputJs)
+// [...allInputs].forEach((input) => input.addEventListener("change", (e) => {
+//   allInputsValue = e.target.value;
+//   console.log(allInputsValue);
+//   return allInputsValue;
+// }));
+
+// if (inputJs === null || inputJs === "") {
+//   [...errorMessages].forEach((errorMessage) => {
+//     errorMessage.style.display = "block";
+//   });
+//   input.classList.add("error-text-control");
+// } else {
+//   form.style.display = "none";
+//   successMessage.style.display = "block";
+//   btnClose.style.display = "block";
+// }
+// if (inputFirstNameValue != null || inputFirstNameValue != "", inputLastNameValue != null || inputLastNameValue != "", inputEmailValue != null || inputEmailValue != "", inputBirthdateValue != null || inputBirthdateValue != "", inputQuantityValue != null || inputQuantityValue != "") {
+//     inputJs === false
+// }
+
+// console.log(inputJs)
 
 
 // Submit Event
 
 submitBtn.forEach((btn) => btn.addEventListener("click", validate));
 
-// Submit Function
+let allInputs = document.querySelectorAll(".js-input");
+let allInputsValue = "";
+
+[...allInputs].forEach((input) => input.addEventListener("submit", (e) => {
+  allInputsValue = e.target.value;
+  console.log(allInputsValue);
+  return allInputsValue;
+}));
 
 function validate() {
-  if (inputJs === false) {
-    console.log("form complete")
-  }
+  [...allInputs].forEach((input) => {
+        if (allInputsValue === null || allInputsValue === "") {
+          [...errorMessages].forEach((errorMessage) => {
+            errorMessage.style.display = "block";
+          });
+          input.classList.add("error-text-control");
+        } else {
+          form.style.display = "none";
+          successMessage.style.display = "block";
+          btnClose.style.display = "block";
+        }
+  });
 }
+
+// Submit Function
+
 
 
 // function validate() {
