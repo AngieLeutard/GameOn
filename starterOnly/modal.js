@@ -134,48 +134,18 @@ inputQuantity.addEventListener("change", (e) => {
   return inputQuantityValue;
 });
 
-
-
-
-// [...allInputs].forEach((input) => input.addEventListener("change", (e) => {
-//   allInputsValue = e.target.value;
-//   console.log(allInputsValue);
-//   return allInputsValue;
-// }));
-
-// if (inputJs === null || inputJs === "") {
-//   [...errorMessages].forEach((errorMessage) => {
-//     errorMessage.style.display = "block";
-//   });
-//   input.classList.add("error-text-control");
-// } else {
-//   form.style.display = "none";
-//   successMessage.style.display = "block";
-//   btnClose.style.display = "block";
-// }
-// if (inputFirstNameValue != null || inputFirstNameValue != "", inputLastNameValue != null || inputLastNameValue != "", inputEmailValue != null || inputEmailValue != "", inputBirthdateValue != null || inputBirthdateValue != "", inputQuantityValue != null || inputQuantityValue != "") {
-//     inputJs === false
-// }
-
-// console.log(inputJs)
-
-
 // Submit Event
 
 submitBtn.forEach((btn) => btn.addEventListener("click", validate));
 
+// Submit Function
+
 let allInputs = document.querySelectorAll(".js-input");
 let allInputsValue = "";
 
-[...allInputs].forEach((input) => input.addEventListener("submit", (e) => {
-  allInputsValue = e.target.value;
-  console.log(allInputsValue);
-  return allInputsValue;
-}));
-
 function validate() {
   [...allInputs].forEach((input) => {
-        if (allInputsValue === null || allInputsValue === "") {
+        if (inputFirstNameValue === null || inputFirstNameValue === "", inputLastNameValue === null || inputLastNameValue === "", inputEmailValue === null || inputEmailValue === "", inputBirthdateValue === null || inputBirthdateValue === "", inputQuantityValue === null || inputQuantityValue === "") {
           [...errorMessages].forEach((errorMessage) => {
             errorMessage.style.display = "block";
           });
@@ -187,32 +157,6 @@ function validate() {
         }
   });
 }
-
-// Submit Function
-
-
-
-// function validate() {
-//   [...inputs].forEach((input) => {
-//     if (inputJs === null || inputJs === "") {
-//       [...errorMessages].forEach((errorMessage) => {
-//         errorMessage.style.display = "block";
-//       });
-//       input.classList.add("error-text-control");
-//     } else {
-//       form.style.display = "none";
-//       successMessage.style.display = "block";
-//       btnClose.style.display = "block";
-//     }
-//   });
-// }
-
-// [...errorMessages].forEach((errorMessage) => {
-//   errorMessage.style.display = "block";
-// });
-// [...inputs].forEach((input) => {
-//   input.classList.add("error-text-control");
-// });
 
 // // Stop refereshing event
 
