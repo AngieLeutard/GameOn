@@ -1,7 +1,7 @@
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
-    x.className += " responsive";
+    x.className += "responsive";
   } else {
     x.className = "topnav";
   }
@@ -16,32 +16,9 @@ const submitBtn = document.querySelectorAll(".js-btn-submit");
 const successMessage = document.querySelector(".successMessage");
 const btnClose = document.querySelector(".modal-close");
 
-// let inputFirst = document.getElementById("first");
-// let inputLast = document.getElementById("last");
-// let inputEmail = document.getElementById("email");
-// let inputDate = document.getElementById("birthdate");
-// let inputAnswer = document.getElementById("quantity");
-
 let inputs = document.querySelectorAll(".js-input");
-
-let errorInputFirst = document.querySelector("#errorFirst");
-let errorInputLast = document.querySelector("#errorLast");
-let errorInputEmail = document.querySelector("#errorEmail");
-let errorInputDate = document.querySelector("#errorDate");
-let errorInputAnswer = document.querySelector("#errorAnswer");
-// let errorMessageFirst = document.querySelector(".errorMessageFirst");
-// let errorMessageLast = document.querySelector(".errorMessageLast");
-// let errorMessageEmail = document.querySelector(".errorMessageEmail");
-// let errorMessageDate = document.querySelector(".errorMessageDate");
-// let errorMessageAnswer = document.querySelector(".errorMessageAnswer");
-
-let errorInput = document.querySelectorAll("#errorFirst");
 let errorMessages = document.querySelectorAll(".errorMessage");
-
-
 let form = document.querySelector("#form");
-
-
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -57,135 +34,158 @@ modalCloseBtn.forEach((closeBtn) => closeBtn.addEventListener("click", closeModa
 // close modal form
 function closeModal() {
   modalbg.style.display = "none";
-  location.reload();
 }
 
-// Input value event
+// Input FirstName
 
-let inputFirstValue = "";
-let inputLastValue = "";
+let inputFirstName = document.getElementById("first");
+let inputFirstNameValue = "";
+let FirstNameError = document.getElementById("textErrorFirst");
+
+
+inputFirstName.addEventListener("change", (e) => {
+  inputFirstNameValue = e.target.value;
+  if (inputFirstNameValue === null || inputFirstNameValue === "") {
+    FirstNameError.style.display = "block";
+    inputFirstName.classList.add("error-text-control");
+    inputFirstName.classList.remove("valid-text-control");
+  } else {
+    FirstNameError.style.display = "none";
+    inputFirstName.classList.add("valid-text-control");
+  }
+  return inputFirstNameValue;
+});
+
+// Input LastName
+
+let inputLastName = document.getElementById("last");
+let inputLastNameValue = "";
+let LastNameError = document.getElementById("textErrorLast");
+
+
+inputLastName.addEventListener("change", (e) => {
+  inputLastNameValue = e.target.value;
+  if (inputLastNameValue === null || inputLastNameValue === "") {
+    LastNameError.style.display = "block";
+    inputLastName.classList.add("error-text-control");
+    inputLastName.classList.remove("valid-text-control");
+  } else {
+    LastNameError.style.display = "none";
+    inputLastName.classList.add("valid-text-control");
+  }
+  return inputLastNameValue;
+});
+
+// Input Email
+
+let inputEmail = document.getElementById("email");
 let inputEmailValue = "";
-let inputDateValue = "";
-let inputAnswerValue = "";
+let EmailError = document.getElementById("textErrorEmail");
+
+
+inputEmail.addEventListener("change", (e) => {
+  inputEmailValue = e.target.value;
+  if (inputEmailValue === null || inputEmailValue === "") {
+    EmailError.style.display = "block";
+    inputEmail.classList.add("error-text-control");
+    inputEmail.classList.remove("valid-text-control");
+  } else {
+    EmailError.style.display = "none";
+    inputEmail.classList.add("valid-text-control");
+  }
+  return inputEmailValue;
+});
+
+// Input Birthdate
+
+let inputBirthdate = document.getElementById("date");
+let inputBirthdateValue = "";
+let BirthdateError = document.getElementById("textErrorDate");
+
+inputBirthdate.addEventListener("change", (e) => {
+  inputBirthdateValue = e.target.value;
+  if (inputBirthdateValue === null || inputBirthdateValue === "") {
+    BirthdateError.style.display = "block";
+    inputBirthdate.classList.add("error-text-control");
+    inputBirthdate.classList.remove("valid-text-control");
+  } else {
+    BirthdateError.style.display = "none";
+    inputBirthdate.classList.add("valid-text-control");
+  }
+  return inputBirthdateValue;
+});
+
+// Input Quantity
+
+let inputQuantity = document.getElementById("quantity");
+let inputQuantityValue = "";
+let QuantityError = document.getElementById("textErrorQuantity");
+
+
+inputQuantity.addEventListener("change", (e) => {
+  inputQuantityValue = e.target.value;
+  if (inputQuantityValue === null || inputQuantityValue === "") {
+    QuantityError.style.display = "block";
+    inputQuantity.classList.add("error-text-control");
+    inputQuantity.classList.remove("valid-text-control");
+  } else {
+    QuantityError.style.display = "none";
+    inputQuantity.classList.add("valid-text-control");
+  }
+  return inputQuantityValue;
+});
+
+// Inputs value event
 
 let inputJs = "";
 
-console.log(inputs);
-console.log(...inputs);
-console.log([...inputs]);
-console.log([inputs[0], inputs[1], inputs[2], inputs[3], inputs[4]]);
+if (inputFirstNameValue != null || inputFirstNameValue != "", inputLastNameValue != null || inputLastNameValue != "", inputEmailValue != null || inputEmailValue != "", inputBirthdateValue != null || inputBirthdateValue != "", inputQuantityValue != null || inputQuantityValue != "") {
+    inputJs === false
+}
+
+console.log(inputJs)
 
 
-[...inputs].forEach((input) => {
-  input.addEventListener("change", (event) => {
-    inputJs = event.target.value;
-    console.log(inputJs);
-    return inputJs;
-  })
-});
+// Submit Event
 
-
-
-// if (input) {
-//   input.addEventListener("change", (event) => {
-//     inputJs = event.target.value;
-//     console.log(inputJs);
-//     return inputJs;
-//   })
-// }
-
-// if (inputFirst) {
-//   inputFirst.addEventListener("change", (event) => {
-//     inputFirstValue = event.target.value;
-//     console.log(inputFirstValue);
-//     return inputFirstValue;
-//   })
-// }
-
-// if (inputLast) {
-//   inputLast.addEventListener("change", (event) => {
-//     inputLastValue = event.target.value;
-//     console.log(inputLastValue);
-//     return inputLastValue;
-//   })
-// }
-
-// if (inputEmail) {
-//   inputEmail.addEventListener("change", (event) => {
-//     inputEmailValue = event.target.value;
-//     console.log(inputEmailValue);
-//     return inputEmailValue;
-//   })
-// }
-
-// if (inputDate) {
-//   inputDate.addEventListener("change", (event) => {
-//     inputDateValue = event.target.value;
-//     console.log(inputDateValue);
-//     return inputDateValue;
-//   })
-// }
-
-// if (inputAnswer) {
-//   inputAnswer.addEventListener("change", (event) => {
-//     inputAnswerValue = event.target.value;
-//     console.log(inputAnswerValue);
-//     return inputAnswerValue;
-//   })
-// }
+submitBtn.forEach((btn) => btn.addEventListener("click", validate));
 
 // Submit Function
 
 function validate() {
-
-  if (inputJs === null || inputJs === "") {
-    [...errorMessages].forEach((errorMessage) => {
-      errorMessage.style.display = "block";
-    });
-    [...inputs].forEach((input) => {
-      input.classList.add("error-text-control")
-    });
-
-    // errorMessage.style.display = "block";
-    // errorInput.dataset.errorVisible = "true";
-  } else {
-    form.style.display = "none";
-    successMessage.style.display = "block";
-    btnClose.style.display = "block";
+  if (inputJs === false) {
+    console.log("form complete")
   }
-
-  
-  // if (inputFirstValue === null || inputFirstValue === "") {
-  //   errorMessageFirst.style.display = "block";
-  //   errorInputFirst.dataset.errorVisible = "true";
-  // }
-
-  // else if (inputLastValue === null || inputLastValue === "") {
-  //   errorMessageLast.style.display = "block";
-  //   errorInputLast.dataset.errorVisible = "true";
-  // }
-  
-  // else if (inputEmailValue === null || inputEmailValue === "") {
-  //   errorMessageEmail.style.display = "block";
-  //   errorInputEmail.dataset.errorVisible = "true";
-  // }
-
-  // else if (inputDateValue === null || inputDateValue === "") {
-  //   errorMessageDate.style.display = "block";
-  //   errorInputDate.dataset.errorVisible = "true";
-  // }
-
-  // else if (inputAnswerValue === null || inputAnswerValue === "") {
-  //   errorMessageAnswer.style.display = "block";
-  //   errorInputAnswer.dataset.errorVisible = "true";
-  // }
 }
 
-// Stop refereshing event
+
+// function validate() {
+//   [...inputs].forEach((input) => {
+//     if (inputJs === null || inputJs === "") {
+//       [...errorMessages].forEach((errorMessage) => {
+//         errorMessage.style.display = "block";
+//       });
+//       input.classList.add("error-text-control");
+//     } else {
+//       form.style.display = "none";
+//       successMessage.style.display = "block";
+//       btnClose.style.display = "block";
+//     }
+//   });
+// }
+
+// [...errorMessages].forEach((errorMessage) => {
+//   errorMessage.style.display = "block";
+// });
+// [...inputs].forEach((input) => {
+//   input.classList.add("error-text-control");
+// });
+
+// // Stop refereshing event
 
 form.addEventListener('submit', stopRefresh);
 
-// Stop refreshing function
+// // Stop refreshing function
 
 function stopRefresh(e) {
   e.preventDefault();

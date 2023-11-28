@@ -56,33 +56,33 @@
           <span class="close"></span>
           <div class="modal-body">
             <p class="successMessage">Merci pour votre inscription</p>
-            <button class="modal-close" onclick="closeModal(); location.reload()">Fermer</button>
+            <button class="modal-close" onclick="closeModal()">Fermer</button>
             <form id="form" name="reserve" action="index.html" method="get" onsubmit="return validate();">
               <div class="formData" id="errorFirst">
                 <label for="first">Prénom</label><br>
-                <input class="text-control js-input" type="text" id="first" name="first" minlength="2" /><br>
+                <input class="text-control js-input" type="text" id="first" name="first" minlength="2"/><br>
               </div>
-              <span class="errorMessage errorMessageFirst">Veuillez renseigner votre prénom.</span>
+              <span class="errorMessage errorMessageFirst" id="textErrorFirst">Veuillez renseigner votre prénom.</span>
               <div class="formData" id="errorLast">
                 <label for="last">Nom</label><br>
                 <input class="text-control js-input" type="text" id="last" name="last" minlength="2"/><br>
               </div>
-              <span class="errorMessage errorMessageLast">Veuillez renseigner votre nom.</span>
+              <span class="errorMessage errorMessageLast" id="textErrorLast">Veuillez renseigner votre nom.</span>
               <div class="formData" id="errorEmail">
                 <label for="email">E-mail</label><br>
-                <input class="text-control js-input" type="email" id="email" name="email"/><br>
+                <input class="text-control js-input" type="email" pattern=".+@example\.com" id="email" name="email"/><br>
               </div>
-              <span class="errorMessage errorMessageEmail">Veuillez ajouter votre email.</span>
+              <span class="errorMessage errorMessageEmail" id="textErrorEmail">Veuillez ajouter votre email.</span>
               <div class="formData" id="errorDate">
                 <label for="birthdate">Date de naissance</label><br>
-                <input class="text-control js-input" type="date" id="birthdate" name="birthdate" min="1921/01/01" max="2008/12/31"/><br>
+                <input class="text-control js-input" type="date" id="date" name="birthdate" min="1921/01/01" max="2008/12/31"/><br>
               </div>
-              <span class="errorMessage errorMessageDate">Veuillez sélectionner une date.</span>
+              <span class="errorMessage errorMessageDate" id="textErrorDate">Veuillez sélectionner une date.</span>
               <div class="formData" id="errorAnswer">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control js-input" id="quantity" name="quantity" min="0" max="99"/>
               </div>
-              <span class="errorMessage errorMessageAnswer">Veuillez répondre à cette question.</span>
+              <span class="errorMessage errorMessageAnswer" id="textErrorQuantity">Veuillez répondre à cette question.</span>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div class="formData">
                 <input class="checkbox-input" type="radio" id="location1" name="location" value="New York"/>
