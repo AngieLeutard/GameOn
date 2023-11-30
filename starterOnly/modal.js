@@ -145,12 +145,33 @@ let allInputsValue = "";
 
 function validate() {
   [...allInputs].forEach((input) => {
-        if (inputFirstNameValue === null || inputFirstNameValue === "", inputLastNameValue === null || inputLastNameValue === "", inputEmailValue === null || inputEmailValue === "", inputBirthdateValue === null || inputBirthdateValue === "", inputQuantityValue === null || inputQuantityValue === "") {
-          [...errorMessages].forEach((errorMessage) => {
-            errorMessage.style.display = "block";
-          });
+    let isValid = true
+        if (inputFirstNameValue === null || inputFirstNameValue === "") {
+          FirstNameError.style.display = "block";
           input.classList.add("error-text-control");
-        } else {
+          isValid = false;
+        }
+        if (inputLastNameValue === null || inputLastNameValue === "") {
+          LastNameError.style.display = "block";
+          input.classList.add("error-text-control");
+          isValid = false;
+        }  
+        if (inputEmailValue === null || inputEmailValue === "") {
+          EmailError.style.display = "block";
+          input.classList.add("error-text-control");
+          isValid = false;
+        }
+        if (inputBirthdateValue === null || inputBirthdateValue === "") {
+          BirthdateError.style.display = "block";
+          input.classList.add("error-text-control");
+          isValid = false;
+        }
+        if (inputQuantityValue === null || inputQuantityValue === "") {
+          QuantityError.style.display = "block";
+          input.classList.add("error-text-control");
+          isValid = false;
+        }
+        if (isValid) {
           form.style.display = "none";
           successMessage.style.display = "block";
           btnClose.style.display = "block";
