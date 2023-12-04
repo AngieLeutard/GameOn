@@ -134,6 +134,26 @@ inputQuantity.addEventListener("change", (e) => {
   return inputQuantityValue;
 });
 
+// Input Checkbox1
+
+let inputCheckbox1 = document.querySelector("input[name=checkbox1]");
+let inputCheckbox1Value = "";
+let checkbox1Error = document.getElementById("textErrorCheckbox1");
+
+
+inputCheckbox1.addEventListener("change", function() {
+  if (this.checked) {
+    checkbox1Error.style.display = "none";
+    inputCheckbox1Value = true;
+    console.log("checké");
+  } else {
+    checkbox1Error.style.display = "block";
+    inputCheckbox1Value = false;
+    console.log("pas coché");
+  }
+  return inputCheckbox1Value;
+});
+
 // Submit Event
 
 submitBtn.forEach((btn) => btn.addEventListener("click", validate));
@@ -171,6 +191,10 @@ function validate() {
           input.classList.add("error-text-control");
           isValid = false;
         }
+        if (inputCheckbox1Value != true) {
+          checkbox1Error.style.display = "block";
+          isValid = false;
+        } 
         if (isValid) {
           form.style.display = "none";
           successMessage.style.display = "block";
