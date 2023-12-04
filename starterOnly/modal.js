@@ -80,17 +80,19 @@ inputLastName.addEventListener("change", (e) => {
 let inputEmail = document.getElementById("email");
 let inputEmailValue = "";
 let EmailError = document.getElementById("textErrorEmail");
+let emailVerif = ""
 
 
 inputEmail.addEventListener("change", (e) => {
   inputEmailValue = e.target.value;
-  if (inputEmailValue === null || inputEmailValue === "") {
+  if (inputEmailValue.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+    EmailError.style.display = "none";
+    inputEmail.classList.add("valid-text-control");
+    emailVerif = true
+  } else {
     EmailError.style.display = "block";
     inputEmail.classList.add("error-text-control");
     inputEmail.classList.remove("valid-text-control");
-  } else {
-    EmailError.style.display = "none";
-    inputEmail.classList.add("valid-text-control");
   }
   return inputEmailValue;
 });
@@ -134,10 +136,10 @@ inputQuantity.addEventListener("change", (e) => {
   return inputQuantityValue;
 });
 
-// Input Checkbox1
+// Input Checkbox1 CGV
 
 let inputCheckbox1 = document.querySelector("input[name=checkbox1]");
-let inputCheckbox1Value = "";
+let inputCheckbox1Value = true;
 let checkbox1Error = document.getElementById("textErrorCheckbox1");
 
 
@@ -145,14 +147,58 @@ inputCheckbox1.addEventListener("change", function() {
   if (this.checked) {
     checkbox1Error.style.display = "none";
     inputCheckbox1Value = true;
-    console.log("checké");
   } else {
     checkbox1Error.style.display = "block";
     inputCheckbox1Value = false;
-    console.log("pas coché");
   }
   return inputCheckbox1Value;
 });
+
+// Input Checkbox Location
+
+let inputCheckboxLocation = document.querySelectorAll("input[name=location]");
+let inputCheckboxLocationValue = false;
+let checkboxLocationError = document.getElementById("textErrorCheckboxLocation");
+checkboxLocationError.style.display = "block";
+
+let locationNY = document.getElementById("location1");
+let locationSF = document.getElementById("location2");
+let locationS = document.getElementById("location3");
+let locationC = document.getElementById("location4");
+let locationB = document.getElementById("location5");
+let locationP = document.getElementById("location6");
+
+[...inputCheckboxLocation].forEach((location) => location.addEventListener("change", function() {
+    if (locationNY.checked) {
+      checkboxLocationError.style.display = "none";
+      inputCheckboxLocationValue = true;
+      console.log("coché")
+    } 
+    if (locationSF.checked) {
+      checkboxLocationError.style.display = "none";
+      inputCheckboxLocationValue = true;
+    } 
+    if (locationS.checked) {
+      checkboxLocationError.style.display = "none";
+      inputCheckboxLocationValue = true;
+    } 
+    if (locationC.checked) {
+      checkboxLocationError.style.display = "none";
+      inputCheckboxLocationValue = true;
+    } 
+    if (locationC.checked) {
+      checkboxLocationError.style.display = "none";
+      inputCheckboxLocationValue = true;
+    } 
+    if (locationB.checked) {
+      checkboxLocationError.style.display = "none";
+      inputCheckboxLocationValue = true;
+    } 
+    if (locationP.checked) {
+      checkboxLocationError.style.display = "none";
+      inputCheckboxLocationValue = true;
+    } 
+}));
 
 // Submit Event
 
@@ -176,7 +222,7 @@ function validate() {
           input.classList.add("error-text-control");
           isValid = false;
         }  
-        if (inputEmailValue === null || inputEmailValue === "") {
+        if (emailVerif != true) {
           EmailError.style.display = "block";
           input.classList.add("error-text-control");
           isValid = false;
@@ -194,7 +240,11 @@ function validate() {
         if (inputCheckbox1Value != true) {
           checkbox1Error.style.display = "block";
           isValid = false;
-        } 
+        }
+        if (inputCheckboxLocationValue != true) {
+          checkboxLocationError.style.display = "block";
+          isValid = false;
+        }  
         if (isValid) {
           form.style.display = "none";
           successMessage.style.display = "block";
