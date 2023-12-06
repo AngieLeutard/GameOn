@@ -617,11 +617,8 @@ footer {
     display: block;
   }
 
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
+  .topnavresponsive {
+    margin: 27px;
   }
 
   .topnav.responsive a {
@@ -629,6 +626,22 @@ footer {
     display: block;
     text-align: left;
   }
+
+  .main-navbar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-navbar a {
+    text-decoration: none;
+    color: black;
+    text-align: end;
+  }
+
+  .fa {
+    color: red;
+  }
+  
 }
 
 @media screen and (max-width: 540px) {
