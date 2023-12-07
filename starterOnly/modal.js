@@ -172,7 +172,6 @@ let locationP = document.getElementById("location6");
     if (locationNY.checked) {
       checkboxLocationError.style.display = "none";
       inputCheckboxLocationValue = true;
-      console.log("coché")
     } 
     if (locationSF.checked) {
       checkboxLocationError.style.display = "none";
