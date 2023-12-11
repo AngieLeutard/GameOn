@@ -12,7 +12,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const modalCloseBtn = document.querySelectorAll(".close");
-const submitBtn = document.querySelectorAll(".js-btn-submit");
+const submitBtn = document.querySelector(".js-btn-submit");
 const successMessage = document.querySelector(".successMessage");
 const btnClose = document.querySelector(".modal-close");
 
@@ -201,7 +201,7 @@ let locationP = document.getElementById("location6");
 
 // Submit Event
 
-submitBtn.forEach((btn) => btn.addEventListener("click", validate));
+
 
 // Submit Function
 
@@ -251,6 +251,8 @@ function validate() {
         }
   });
 }
+
+submitBtn.addEventListener("click", validate());
 
 // // Stop refereshing event
 
